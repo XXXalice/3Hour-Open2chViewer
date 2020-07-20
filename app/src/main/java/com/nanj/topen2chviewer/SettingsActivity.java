@@ -1,5 +1,6 @@
 package com.nanj.topen2chviewer;
 
+import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.content.SharedPreferences;
 import android.os.Bundle;

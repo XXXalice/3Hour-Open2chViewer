@@ -1,6 +1,7 @@
 package com.nanj.topen2chviewer;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
     webView.setWebViewClient(new WebViewClient());
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
     // TopAppBarのナビゲーションアイコンのListener
