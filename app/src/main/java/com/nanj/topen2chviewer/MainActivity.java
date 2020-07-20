@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
     // 設定で選ばれたテーマに切り替える
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     if (sharedPreferences.getBoolean("darkorlight", true)) {
-      getApplicationContext().setTheme(R.style.LightThemeNoActionBar);
+      setTheme(R.style.LightThemeNoActionBar);
     } else {
-      getApplicationContext().setTheme(R.style.DarkThemeNoActionBar);
+      setTheme(R.style.DarkThemeNoActionBar);
     }
 
     super.onCreate(savedInstanceState);
