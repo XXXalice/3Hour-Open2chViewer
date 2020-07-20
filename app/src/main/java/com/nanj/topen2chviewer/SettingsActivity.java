@@ -28,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         .commit();
      
     // 「About」のListener
-    Preference aboutPreference = findPreference("about");
+    Preference aboutPreference = (Preference)findPreference("about");
     aboutPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
       public boolean onPreferenceClick(Preference preference) {
         // AboutActivityに飛ぶ
