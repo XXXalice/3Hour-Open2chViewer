@@ -1,8 +1,12 @@
 package com.nanj.topen2chviewer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceManager;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceFragmentCompat;
 
