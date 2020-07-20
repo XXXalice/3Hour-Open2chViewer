@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     // WebViewにページを表示させる
     WebView webView = findViewById(R.id.webview);
     webView.getSettings().setJavaScriptEnabled(true);
+    webView.setWebViewClient(new WebViewClient());
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
