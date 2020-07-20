@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.Preference;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -23,6 +24,16 @@ public class SettingsActivity extends AppCompatActivity {
         .beginTransaction()
         .replace(R.id.settingscontainer, new SettingsFragment())
         .commit();
+     
+    // 「About」のListener
+    Preference aboutPreference = findPreference("about");
+    aboutPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+      public boolean onPreferenceClick(Preference preference) {
+        // AboutActivityに飛ぶ
+        startActivity(new Intent(SettingsActivity.this, AboutActivity.class));
+        return true;
+      }
+    });
 
     // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
@@ -47,7 +58,7 @@ public class SettingsActivity extends AppCompatActivity {
         switch (menuItem.getItemId()) {
           case R.id.home:
             // MainActivityに飛ぶ
-            startActivity(new Intent(SettingActivity.this, MainActivity.class));
+            startActivity(new Intent(SettingsActivity.this, MainActivity.class));
             break;
           case R.id.setting:
             // 何もしない
