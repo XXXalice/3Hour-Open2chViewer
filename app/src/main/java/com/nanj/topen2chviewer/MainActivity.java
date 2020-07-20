@@ -24,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    // 設定で選ばれたテーマに切り替える
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    if (sharedPreferences.getBoolean("darkorlight", true) {
+      setTheme(R.style.LightThemeNoActionBar);
+    } else {
+      setTheme(R.style.DarkThemeNoActionBar);
+    }
+
     setContentView(R.layout.activity_main);
 
     // アップデートを確認

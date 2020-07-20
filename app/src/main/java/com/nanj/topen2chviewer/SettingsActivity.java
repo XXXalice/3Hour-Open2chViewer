@@ -1,12 +1,23 @@
 package com.nanj.topen2chviewer;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 public class SettingsActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    // 設定で選ばれたテーマに切り替える
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    if (sharedPreferences.getBoolean("darkorlight", true) {
+      setTheme(R.style.LightTheme);
+    } else {
+      setTheme(R.style.DarkTheme);
+    }
+
     setContentView(R.layout.activity_settings);
 
     // 設定画面を表示

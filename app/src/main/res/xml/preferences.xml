@@ -7,6 +7,10 @@
     android:dialogTitle="起動して最初に表示するページ"
     android:defaultValue="https://open2ch.net/sp/"
     app:useSimpleSummaryProvider="true"/>
+  <SwitchPreferenceCompat
+    android:key="darkorlight"
+    android:title="ダーク/ライトモードの切り替え"
+    android:defaultValue="true"/>
   <Preference
     android:key="about"
     android:title="About"/>
