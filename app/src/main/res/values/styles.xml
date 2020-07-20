@@ -1,6 +1,6 @@
 <resources>
-  <style name="LightTheme" parent="Theme.MaterialComponents.Light"/>
-  <style name="DarkTheme" parent="Theme.MaterialComponents.DayNight"/>
-  <style name="LightThemeNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar"/>
-  <style name="DarkThemeNoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+  <style name="LightTheme" parent="Theme.MaterialComponents.Light.Bridge"/>
+  <style name="DarkTheme" parent="Theme.MaterialComponents.Bridge"/>
+  <style name="LightThemeNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge"/>
+  <style name="DarkThemeNoActionBar" parent="Theme.MaterialComponents.NoActionBar.Bridge"/>
 </resources>
