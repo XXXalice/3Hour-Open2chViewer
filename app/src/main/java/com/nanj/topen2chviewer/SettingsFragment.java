@@ -16,8 +16,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     themePreference.setOnPreferenceChangeListener(new OnPreferenceClickListener() {
       public boolean onPreferenceClick(Preference preference) {
         // アクティビティを再起動する
-        finish();
-        startActivity(new Intent(getActivity().getApplicationContext(), getActivity().getApplicationContext()));
+        getActivity().finish();
+        startActivity(new Intent(getActivity().getApplicationContext(), SettingsActivity.class));
         return true;
       }
     });
