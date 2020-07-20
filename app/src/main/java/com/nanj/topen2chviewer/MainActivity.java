@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.preference.PreferenceManager;
@@ -55,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
     webView.setWebViewClient(new WebViewClient());
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
     // TopAppBarのナビゲーションアイコンのListener
