@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     int setStyle;
     if (sharedPreferences.getBoolean("darkorlight", true)) {
-      setStyle = R.style.LightThemeNoActionBar;
+      setStyle = R.style.DarkThemeNoActionBar;
     } else {
       setStyle = R.style.DarkThemeNoActionBar;
     }
