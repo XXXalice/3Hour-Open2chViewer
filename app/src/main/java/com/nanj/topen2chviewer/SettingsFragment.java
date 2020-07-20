@@ -16,7 +16,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     aboutPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
       public boolean onPreferenceClick(Preference preference) {
         // AboutActivityに飛ぶ
-        startActivity(new Intent(getActivity().getApplicationContext(), AboutActivity.class));
+        startActivity(new Intent(getActivity().getContext(), AboutActivity.class));
         return true;
       }
     });

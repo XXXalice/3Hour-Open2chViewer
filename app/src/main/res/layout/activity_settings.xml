@@ -8,17 +8,6 @@
   <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.google.android.material.appbar.AppBarLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-      <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialtoolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="@string/app_name"
-        app:navigationIcon="@drawable/menu"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
-    </com.google.android.material.appbar.AppBarLayout>
     <FrameLayout
       android:id="@+id/settingscontainer"
       android:layout_width="match_parent"
