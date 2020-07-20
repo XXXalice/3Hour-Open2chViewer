@@ -3,11 +3,11 @@
   xmlns:app="http://schemas.android.com/apk/res-auto">
   <EditTextPreference
     android:key="homepage"
-    app:title="起動して最初に表示するページ"
+    android:title="起動して最初に表示するページ"
     android:dialogTitle="起動して最初に表示するページ"
     android:defaultValue="https://open2ch.net/sp/"
-    android:useSimpleSummaryProvider="true"/>
+    app:useSimpleSummaryProvider="true"/>
    <Preference
     android:key="about"
-    app:title="About"/>
+    android:title="About"/>
 </PreferenceScreen>
