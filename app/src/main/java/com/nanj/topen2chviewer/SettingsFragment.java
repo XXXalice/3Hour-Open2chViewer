@@ -21,7 +21,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
       @Override
       public boolean onPreferenceChange(Preference preference, Object newValue) {
         // テーマを変更する
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         if (sharedPreferences.getBoolean("darkorlight", true)) {
           AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         } else {
