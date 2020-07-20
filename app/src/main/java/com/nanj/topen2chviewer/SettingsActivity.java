@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -60,7 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
             // MainActivityに飛ぶ
             startActivity(new Intent(SettingsActivity.this, MainActivity.class));
             break;
-          case R.id.setting:
+          case R.id.settings:
             // 何もしない
             break;
         }
