@@ -1,5 +1,6 @@
 package com.nanj.topen2chviewer;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +12,12 @@ public class AboutActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     // Aboutページを作成
-    View aboutPage = new AboutPage(this)
-        .setImage(R.drawable.aa)
+    View aboutPage = new AboutPage(this);
+    int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK
+    if (currentNightMode = Configuration.UI_MODE_NIGHT_YES) {
+      aboutPage.enableDarkMode(true);
+    }
+    aboutPage.setImage(R.drawable.aa)
         .setDescription(getString(R.string.app_name) + "\n" + getString(R.string.app_version))
         .addEmail("nanjdev334@gmail.com")
         .addGitHub("NanJ-Dev")
