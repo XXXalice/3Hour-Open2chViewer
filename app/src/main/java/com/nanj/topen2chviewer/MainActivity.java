@@ -1,14 +1,17 @@
 package com.nanj.topen2chviewer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.PreferenceManager;
 import com.github.javiersantos.appupdater.AppUpdater;
 import com.github.javiersantos.appupdater.enums.Display;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
@@ -32,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         .setButtonDismiss("無視する")
         .setButtonDoNotShowAgain("二度と表示しない")
         .start();
+
+    // WebViewにページを表示させる
+    WebView webView = findViewById(R.id.webview);
+    webView.getSettings().setJavaScriptEnabled(true);
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
     // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
