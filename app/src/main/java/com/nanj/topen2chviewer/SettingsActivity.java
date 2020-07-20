@@ -12,11 +12,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_setting);
+    setContentView(R.layout.activity_settings);
+
+    // 設定画面を表示
+    getSupportFragmentManager()
+        .beginTransaction()
+        .replace(R.id.settingscontainer, new SettingsFragment())
+        .commit();
 
     // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);

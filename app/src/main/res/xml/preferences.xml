@@ -1,0 +1,12 @@
+<PreferenceScreen
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+  <EditTextPreference
+    app:key="homepage"
+    app:title="起動して最初に表示するページ"
+    app:dialogTitle="起動して最初に表示するページ"
+    app:defaultValue="https://open2ch.net/sp/"
+    app:useSimpleSummaryProvider="true"/>
+   <Preference
+    app:key="about"
+    app:title="About"/>
+</PreferenceScreen>

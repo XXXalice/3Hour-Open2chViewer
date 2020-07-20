@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             break;
           case R.id.setting:
             // SettingActivityに飛ぶ
-            startActivity(new Intent(MainActivity.this, SettingActivity.class));
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             break;
         }
         return true;
