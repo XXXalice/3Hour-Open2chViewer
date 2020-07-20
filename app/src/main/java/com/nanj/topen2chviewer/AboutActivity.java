@@ -13,7 +13,7 @@ public class AboutActivity extends AppCompatActivity {
 
     // Aboutページを作成
     View aboutPage = new AboutPage(this);
-    int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK
+    int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
     if (currentNightMode = Configuration.UI_MODE_NIGHT_YES) {
       aboutPage.enableDarkMode(true);
     }
