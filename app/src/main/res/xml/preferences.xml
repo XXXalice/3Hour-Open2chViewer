@@ -1,4 +1,4 @@
-<androidx.preference.PreferenceScreen
+<PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto">
   <EditTextPreference
@@ -10,4 +10,4 @@
    <Preference
     android:key="about"
     android:title="About"/>
-</androidx.preference.PreferenceScreen>
+</PreferenceScreen>
