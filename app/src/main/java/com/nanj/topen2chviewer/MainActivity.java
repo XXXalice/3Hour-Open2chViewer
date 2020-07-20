@@ -1,6 +1,7 @@
 package com.nanj.topen2chviewer;
 
 import android.content.Intent;
+import android.content.res.Resources.Theme;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -26,10 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
     // 設定で選ばれたテーマに切り替える
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    int setStyle;
     if (sharedPreferences.getBoolean("darkorlight", true)) {
-      setTheme(R.style.LightThemeNoActionBar);
+      setStyle = R.style.LightThemeNoActionBar;
     } else {
-      setTheme(R.style.DarkThemeNoActionBar);
+      setStyle = R.style.DarkThemeNoActionBar;
+    }
+    @Override
+    public Resources.Theme getTheme() {
+      Resources.Theme theme = super.getTheme();
+      theme.applyStyle(setStyle, true);
+      return theme;
     }
 
     super.onCreate(savedInstanceState);
