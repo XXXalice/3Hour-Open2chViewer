@@ -9,22 +9,6 @@ import androidx.preference.PreferenceManager;
 public class SettingsActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-
-    // 設定で選ばれたテーマに切り替える
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    int setStyle;
-    if (sharedPreferences.getBoolean("darkorlight", true)) {
-      setStyle = R.style.LightTheme;
-    } else {
-      setStyle = R.style.DarkTheme;
-    }
-    @Override
-    public Resources.Theme getTheme() {
-      Resources.Theme theme = super.getTheme();
-      theme.applyStyle(setStyle, true);
-      return theme;
-    }
-
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_settings);
 
@@ -33,5 +17,19 @@ public class SettingsActivity extends AppCompatActivity {
         .beginTransaction()
         .replace(R.id.settingscontainer, new SettingsFragment())
         .commit();
+  }
+  // 設定で選ばれたテーマに切り替える
+  @Override
+  public Resources.Theme getTheme() {
+    Resources.Theme theme = super.getTheme();
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    int setStyle;
+    if (sharedPreferences.getBoolean("darkorlight", true)) {
+      setStyle = R.style.LightThemeNoActionBar;
+    } else {
+      setStyle = R.style.DarkThemeNoActionBar;
+    }
+    theme.applyStyle(setStyle, true);
+    return theme;
   }
 }
