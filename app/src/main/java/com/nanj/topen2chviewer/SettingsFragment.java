@@ -6,6 +6,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceFragmentCompat;
+import java.lang.Object;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
   @Override
@@ -15,7 +16,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     // テーマ選択スイッチのListener
     Preference themePreference = findPreference("darkorlight");
     themePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-      public boolean onPreferenceChange(Preference preference) {
+      @Override
+      public boolean onPreferenceChange(Preference preference, Object newValue) {
         // アクティビティを再起動する
         getActivity().finish();
         startActivity(new Intent(getActivity().getApplicationContext(), SettingsActivity.class));
