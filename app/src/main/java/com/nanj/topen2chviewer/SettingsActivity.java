@@ -8,7 +8,6 @@ import androidx.preference.PreferenceManager;
 public class SettingsActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
 
     // 設定で選ばれたテーマに切り替える
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -18,6 +17,7 @@ public class SettingsActivity extends AppCompatActivity {
       getApplicationContext().setTheme(R.style.DarkTheme);
     }
 
+    super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_settings);
 
     // 設定画面を表示
