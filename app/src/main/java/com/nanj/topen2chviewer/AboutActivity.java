@@ -16,11 +16,11 @@ public class AboutActivity extends AppCompatActivity {
     if (AppCompatDelegate.getDefaultNightMode() = AppCompatDelegate.MODE_NIGHT_YES) {
       aboutPage.enableDarkMode(true);
     }
-    aboutPage.setImage(R.drawable.aa)
-        .setDescription(getString(R.string.app_name) + "\n" + getString(R.string.app_version))
-        .addEmail("nanjdev334@gmail.com")
-        .addGitHub("NanJ-Dev")
-        .create();
+    aboutPage.setImage(R.drawable.aa);
+    aboutPage.setDescription(getString(R.string.app_name) + "\n" + getString(R.string.app_version));
+    aboutPage.addEmail("nanjdev334@gmail.com");
+    aboutPage.addGitHub("NanJ-Dev");
+    aboutPage.create();
 
     // 作成したAboutページを表示
     setContentView(aboutPage);
