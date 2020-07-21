@@ -22,6 +22,8 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+  int lastTheme;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     // テーマを変更する
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     } else {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
+    lastTheme = AppCompatDelegate.getDefaultNightMode();
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
@@ -89,6 +92,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
       }
     });
+  }
+
+  @Override
+  protected void onRestart() {
+    super.onRestart();
+    if (lastTheme != AppCompatDelegate.getDefaultNightMode()) {
+      recreate();
+    }
   }
 
   // 戻るキーを押すとドロワーが閉じる
