@@ -1,5 +1,6 @@
 package com.nanj.topen2chviewer;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,7 @@ public class AboutActivity extends AppCompatActivity {
 
     // Aboutページを作成
     boolean darkMode;
-    int darkModeFlags = getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+    int darkModeFlags = getApplicationContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
     if (darkModeFlags == Configuration.UI_MODE_NIGHT_YES) {
       darkMode = true;
     } else {
