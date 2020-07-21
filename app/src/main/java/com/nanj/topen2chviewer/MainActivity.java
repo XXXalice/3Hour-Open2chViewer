@@ -22,7 +22,8 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-  changeTheme();
+  boolean temp = changeTheme();
+  temp = null;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   // テーマを変更する
-  public void changeTheme() {
+  public boolean changeTheme() {
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     if (sharedPreferences.getBoolean("darkorlight", true)) {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
