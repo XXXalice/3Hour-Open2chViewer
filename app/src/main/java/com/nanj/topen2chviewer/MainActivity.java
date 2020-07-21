@@ -22,7 +22,8 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-  changeTheme();
+  SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+  changeTheme(sharedPreferences.getBoolean("darkorlight", true));
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
     webView.setWebViewClient(new WebViewClient());
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
     // TopAppBarのナビゲーションアイコンのListener
@@ -108,9 +108,8 @@ public class MainActivity extends AppCompatActivity {
   }
 
   // テーマを変更する
-  public void changeTheme() {
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    if (sharedPreferences.getBoolean("darkorlight", true)) {
+  public void changeTheme(boolean selectTheme) {
+    if (selectTheme) {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     } else {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
