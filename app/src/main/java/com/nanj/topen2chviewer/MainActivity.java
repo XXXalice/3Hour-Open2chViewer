@@ -23,7 +23,6 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
   boolean temp = changeTheme();
-  temp = null;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
