@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
   }
 
   @Override
-  protected void onResume() {
-    super.onResume();
+  protected void onPostResume() {
+    super.onPostResume();
     if (savedInstanceStateClone == null) {
       recreate();
     }
