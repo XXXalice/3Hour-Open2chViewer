@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
@@ -119,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onReceivedTitle(WebView webView, String title) {
       super.onReceivedTitle(webView, title);
-      MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
-      materialToolBar.setTitle(title);
+      TextView textView = findViewById(R.id.text_view);
+      textView.setText(title);
     }
   };
 
