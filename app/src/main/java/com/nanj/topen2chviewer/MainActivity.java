@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     // AgentWebを表示させる
     LinearLayout linearLayout = findViewById(R.id.agentwebcontainer);
-    agentWeb = AgentWeb.with(this)
+    AgentWeb agentWeb = AgentWeb.with(this)
         .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
         .useDefaultIndicator()
         .createAgentWeb()
