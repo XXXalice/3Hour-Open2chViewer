@@ -17,7 +17,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     setPreferencesFromResource(R.xml.preferences, rootKey);
 
     // テーマ選択スイッチのListener
-    SwitchPreferenceCompat themePreference = findPreference("darkorlight");
+    final SwitchPreferenceCompat themePreference = findPreference("darkorlight");
     themePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
       @Override
       public boolean onPreferenceChange(Preference preference, Object newValue) {
