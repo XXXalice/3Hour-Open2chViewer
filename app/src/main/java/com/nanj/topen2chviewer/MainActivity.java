@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
     super.onStart();
 
     // テーマを変更する
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     if (sharedPreferences.getBoolean("darkorlight", true)) {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     } else {
