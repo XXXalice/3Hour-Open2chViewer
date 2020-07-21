@@ -19,8 +19,8 @@
         app:navigationIcon="@drawable/menu"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
     </com.google.android.material.appbar.AppBarLayout>
-    <WebView
-      android:id="@+id/webview"
+    <LinearLayout
+      android:id="@+id/agentwebcontainer"
       android:layout_width="match_parent"
       android:layout_height="match_parent"/>
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
