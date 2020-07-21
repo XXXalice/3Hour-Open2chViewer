@@ -1,16 +1,13 @@
 package com.nanj.topen2chviewer;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
   @Override
@@ -22,13 +19,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     themePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
       @Override
       public boolean onPreferenceChange(Preference preference, Object newValue) {
-            // テーマを変更する
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-            if (sharedPreferences.getBoolean("darkorlight", true)) {
-              AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            } else {
-              AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
+        // トーストを出す
+        Toast.makeText(getActivity().getApplicationContext(), "次回起動時から有効となります。", Toast.LENGTH_LONG).show();
         return true;
       }
     });
