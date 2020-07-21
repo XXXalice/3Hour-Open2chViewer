@@ -26,6 +26,7 @@ import com.just.agentweb.WebChromeClient;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
+  AgentWeb agentWeb;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     // AgentWebを表示させる
     LinearLayout linearLayout = findViewById(R.id.agentwebcontainer);
-    AgentWeb agentWeb = AgentWeb.with(this)
+    agentWeb = AgentWeb.with(this)
         .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
         .useDefaultIndicator()
         .setWebChromeClient(webChromeClient)
@@ -98,11 +99,29 @@ public class MainActivity extends AppCompatActivity {
   }
 
   @Override
+  protected void onPause() {
+    agentWeb.getWebLifeCycle().onPause(); 
+    super.onPause();
+  }
+
+  @Override
+  protected void onResume() {
+    agentWeb.getWebLifeCycle().onResume();
+    super.onResume();
+  }
+
+  @Override
   protected void onRestart() {
     super.onRestart();
     if (lastTheme != AppCompatDelegate.getDefaultNightMode()) {
       recreate();
     }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    agentWeb.getWebLifeCycle().onDestroy();
   }
 
   // 戻るキーを押すとドロワーが閉じる
