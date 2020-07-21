@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             // ページのURLをコピーする
             String url = agentWeb.getWebCreator().getWebView().getUrl();
             copyToClipboard(url);
-            Toast.makeText(this, "URLをコピーしました。", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "URLをコピーしました。", Toast.LENGTH_LONG).show();
             break;
         }
         return true;
