@@ -15,9 +15,14 @@
         android:id="@+id/materialtoolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="@string/app_name"
         app:navigationIcon="@drawable/menu"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
+        style="@style/Widget.MaterialComponents.Toolbar.Primary">
+        <TextView
+          android:id="@+id/materialtoolbartitle"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:autoSizeTextType="uniform"/>
+      </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
     <LinearLayout
       android:id="@+id/agentwebcontainer"
