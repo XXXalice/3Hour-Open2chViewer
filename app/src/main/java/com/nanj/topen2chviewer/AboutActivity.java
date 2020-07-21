@@ -13,8 +13,7 @@ public class AboutActivity extends AppCompatActivity {
 
     // Aboutページを作成
     boolean darkMode;
-    int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-    if (currentNightMode = Configuration.UI_MODE_NIGHT_YES) {
+    if (AppCompatDelegate.getDefaultNightMode() = AppCompatDelegate.MODE_NIGHT_YES) {
       darkMode = true;
     } else {
       darkMode = false;
