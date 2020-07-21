@@ -20,7 +20,7 @@ import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.just.agentweb.AgentWeb;
-import com.just.agentweb.DefaultWebClient;
+import com.just.agentweb.WebChromeClient;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
@@ -56,16 +56,21 @@ public class MainActivity extends AppCompatActivity {
     AgentWeb agentWeb = AgentWeb.with(this)
         .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
         .useDefaultIndicator()
-        .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.ASK)
-        //.setMainFrameErrorView(R.layout.agentweb_error_page, "errorpage")
-        .interceptUnkownUrl()
+        .setWebChromeClient(webChromeClient)
         .createAgentWeb()
         .ready()
         .go(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
-    // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
+    WebChromeClient webChromeClient = new WebChromeClient() {
+      @Override
+      public void onReceivedTitle(WebView webView, String title) {
+        super.onReceivedTitle(webView, title);
+        materialToolBar.setTitle(title);
+      }
+    };
 
+    // TopAppBarのナビゲーションアイコンのListener
     // ナビゲーションアイコンをタップするとドロワーを開く
     materialToolBar.setNavigationOnClickListener(new View.OnClickListener() {
       @Override
