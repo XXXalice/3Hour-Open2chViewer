@@ -8,6 +8,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreferenceCompat;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
   @Override
@@ -15,12 +16,16 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     setPreferencesFromResource(R.xml.preferences, rootKey);
 
     // テーマ選択スイッチのListener
-    Preference themePreference = findPreference("darkorlight");
+    SwitchPreferenceCompat themePreference = findPreference("darkorlight");
     themePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
       @Override
       public boolean onPreferenceChange(Preference preference, Object newValue) {
-        // トーストを出す
-        Toast.makeText(getActivity().getApplicationContext(), "次回起動時から有効となります。", Toast.LENGTH_LONG).show();
+            // テーマを変更する
+            if (themePreference.isChecked()) {
+              AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+              AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
         return true;
       }
     });
