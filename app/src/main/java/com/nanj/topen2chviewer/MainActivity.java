@@ -20,7 +20,6 @@ import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.just.agentweb.AgentWeb;
-import com.just.agentweb.NestedScrollAgentWebView;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
@@ -53,11 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     // AgentWebを表示させる
     LinearLayout linearLayout = findViewById(R.id.agentwebcontainer);
-    NestedScrollAgentWebView nestedScrollAgentWebView = new NestedScrollAgentWebView(this);
     AgentWeb agentWeb = AgentWeb.with(this)
         .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
         .useDefaultIndicator()
-        .setWebView(nestedScrollAgentWebView)
         .createAgentWeb()
         .ready()
         .go(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
