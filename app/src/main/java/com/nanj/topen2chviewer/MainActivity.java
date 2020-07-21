@@ -24,7 +24,6 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
 /*
     // テーマを変更する
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 */
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+    super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
     // アップデートを確認
