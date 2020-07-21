@@ -21,6 +21,8 @@
           android:id="@+id/materialtoolbartitle"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
+          android:layout_margin="5dp"
+          android:gravity="center"
           app:autoSizeTextType="uniform"/>
       </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
