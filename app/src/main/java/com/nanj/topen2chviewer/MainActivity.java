@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,16 +62,9 @@ public class MainActivity extends AppCompatActivity {
         .ready()
         .go(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
-    MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
-    WebChromeClient webChromeClient = new WebChromeClient() {
-      @Override
-      public void onReceivedTitle(WebView webView, String title) {
-        super.onReceivedTitle(webView, title);
-        materialToolBar.setTitle(title);
-      }
-    };
-
     // TopAppBarのナビゲーションアイコンのListener
+    MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
+
     // ナビゲーションアイコンをタップするとドロワーを開く
     materialToolBar.setNavigationOnClickListener(new View.OnClickListener() {
       @Override
@@ -120,6 +114,14 @@ public class MainActivity extends AppCompatActivity {
       super.onBackPressed();
     }
   }
+
+  WebChromeClient webChromeClient = new WebChromeClient() {
+    @Override
+    public void onReceivedTitle(WebView webView, String title) {
+      super.onReceivedTitle(webView, title);
+      materialToolBar.setTitle(title);
+    }
+  };
 
   // ドロワーを開けたり閉じたりする
   public void openCloseDrawer(boolean openClose) {
