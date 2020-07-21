@@ -24,15 +24,6 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-
-    // テーマを変更する
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    if (sharedPreferences.getBoolean("darkorlight", true)) {
-      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-    } else {
-      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-    }
-
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
@@ -56,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
     webView.setWebViewClient(new WebViewClient());
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
     // TopAppBarのナビゲーションアイコンのListener
@@ -90,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
       }
     });
+
+    // テーマを変更する
+    if (sharedPreferences.getBoolean("darkorlight", true)) {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    } else {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+    }
   }
 
   // 戻るキーを押すとドロワーが閉じる
