@@ -22,7 +22,8 @@
     <LinearLayout
       android:id="@+id/agentwebcontainer"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"/>
+      android:layout_height="match_parent"
+      android:orientation="vertical"/>
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
   <com.google.android.material.navigation.NavigationView
     android:id="@+id/navigationview"
