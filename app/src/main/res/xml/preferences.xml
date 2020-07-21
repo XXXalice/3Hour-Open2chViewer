@@ -3,8 +3,8 @@
   xmlns:app="http://schemas.android.com/apk/res-auto">
   <EditTextPreference
     android:key="homepage"
-    android:title="起動して最初に表示するページ"
-    android:dialogTitle="起動して最初に表示するページ"
+    android:title="起動時に表示するページ"
+    android:dialogTitle="起動時に表示するページ"
     android:defaultValue="https://open2ch.net/sp/"
     app:useSimpleSummaryProvider="true"/>
   <SwitchPreferenceCompat
@@ -14,4 +14,7 @@
   <Preference
     android:key="about"
     android:title="About"/>
+  <Preference
+    android:key="backdefault"
+    android:title="デフォルトの設定に戻す"/>
 </PreferenceScreen>

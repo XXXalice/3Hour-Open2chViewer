@@ -1,6 +1,7 @@
 package com.nanj.topen2chviewer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.preference.Preference;
@@ -30,6 +31,21 @@ public class SettingsFragment extends PreferenceFragmentCompat {
       public boolean onPreferenceClick(Preference preference) {
         // AboutActivityに飛ぶ
         startActivity(new Intent(getActivity().getApplicationContext(), AboutActivity.class));
+        return true;
+      }
+    });
+
+    // 「デフォルトの設定に戻す」のListener
+    Preference backDefaultPreference = findPreference("backdefault");
+    backDefaultPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+      public boolean onPreferenceClick(Preference preference) {
+        // デフォルトの設定に戻す
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("homepage", "https://open2ch.net/sp/");
+        editor.putBoolean("darkorlight", true);
+        editor.apply();
+        Toast.makeText(getActivity().getApplicationContext(), "デフォルトの設定に戻されました", Toast.LENGTH_LONG).show();
         return true;
       }
     });
