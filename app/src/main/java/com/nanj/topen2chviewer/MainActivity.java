@@ -133,10 +133,10 @@ public class MainActivity extends AppCompatActivity {
       return;
     }
     WebView webView = agentWeb.getWebCreator().getWebView();
-    if (webView.canGoBack()) {
+    // if (webView.canGoBack()) {
       webView.goBack();
-      return;
-    }
+      // return;
+    // }
     super.onBackPressed();
   }
 
