@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         .setButtonDismiss("無視する")
         .setButtonDoNotShowAgain("二度と表示しない")
         .start();
-
+/*
     // WebViewにページを表示させる
     WebView webView = findViewById(R.id.webview);
     webView.getSettings().setJavaScriptEnabled(true);
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     webView.setWebViewClient(new WebViewClient());
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
-
+*/
     // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
 

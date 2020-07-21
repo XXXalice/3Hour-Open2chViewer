@@ -19,10 +19,12 @@
         app:navigationIcon="@drawable/menu"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
     </com.google.android.material.appbar.AppBarLayout>
+    <!--
     <WebView
       android:id="@+id/webview"
       android:layout_width="match_parent"
       android:layout_height="match_parent"/>
+      -->
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
   <com.google.android.material.navigation.NavigationView
     android:id="@+id/navigationview"
