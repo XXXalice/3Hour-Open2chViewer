@@ -23,9 +23,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
       public boolean onPreferenceChange(Preference preference, Object newValue) {
         // テーマを変更する
         if (themePreference.isChecked()) {
-          AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else {
           AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+          AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
         return true;
       }
