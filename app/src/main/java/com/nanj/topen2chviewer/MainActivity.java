@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     }
 */
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
@@ -101,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
     if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
       openCloseDrawer(false);
     } else {
-      super.onBackPressed();
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+      // super.onBackPressed();
     }
   }
 
