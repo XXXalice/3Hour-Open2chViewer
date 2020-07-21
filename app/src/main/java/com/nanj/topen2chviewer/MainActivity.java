@@ -1,5 +1,8 @@
 package com.nanj.topen2chviewer;
 
+import android.content.ClipboardManager;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
@@ -28,6 +32,7 @@ import com.just.agentweb.WebChromeClient;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
+  String lastURL;
   AgentWeb agentWeb;
 
   @Override
@@ -58,13 +63,19 @@ public class MainActivity extends AppCompatActivity {
 
     // AgentWebを表示させる
     LinearLayout linearLayout = findViewById(R.id.agentwebcontainer);
+    String goURL;
+    if (lastURL == null || lastURL == "") {
+      goURL = sharedPreferences.getString("homepage", "https://open2ch.net/sp/");
+    } else {
+      goURL = lastURL;
+    }
     agentWeb = AgentWeb.with(this)
         .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
         .useDefaultIndicator()
         .setWebChromeClient(webChromeClient)
         .createAgentWeb()
         .ready()
-        .go(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
+        .go(goURL);
 
     // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
@@ -90,7 +101,13 @@ public class MainActivity extends AppCompatActivity {
             break;
           case R.id.copyurl:
             // ページのURLをコピーする
-            
+            String url = agentWeb.getWebCreator().getWebView().getUrl();
+            ClipboardManager clipboardManager = (ClipboardManager)this.getSystemService(Context.CLIPBOARD_SERVICE);
+            if (clipboardManager == null) {
+              return;
+            }
+            clipboardManager.setPrimaryClip(ClipData.newPlainText("", copyText));
+            Toast.makeText(this, "URLをコピーしました。", Toast.LENGTH_LONG).show();
             break;
         }
         return true;
@@ -136,7 +153,10 @@ public class MainActivity extends AppCompatActivity {
   protected void onRestart() {
     super.onRestart();
     if (lastTheme != AppCompatDelegate.getDefaultNightMode()) {
+      lastURL = agentWeb.getWebCreator().getWebView().getUrl();
       recreate();
+    } else {
+      lastURL = "";
     }
   }
 
