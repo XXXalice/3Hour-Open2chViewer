@@ -24,6 +24,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.just.agentweb.AgentWeb;
 import com.just.agentweb.WebChromeClient;
+import com.just.agentweb.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
