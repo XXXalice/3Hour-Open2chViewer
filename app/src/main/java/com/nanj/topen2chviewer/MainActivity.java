@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
   }
 
+  // AgentWebで使うWebChromeClient
   WebChromeClient webChromeClient = new WebChromeClient() {
     @Override
     public void onReceivedTitle(WebView webView, String title) {
