@@ -25,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    // テーマを変更する
+    if (sharedPreferences.getBoolean("darkorlight", true)) {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    } else {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+    }
+
     setContentView(R.layout.activity_main);
 
     // アップデートを確認
@@ -47,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
     webView.setWebViewClient(new WebViewClient());
-    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 */
     // TopAppBarのナビゲーションアイコンのListener
@@ -82,13 +90,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
       }
     });
-
-    // テーマを変更する
-    if (sharedPreferences.getBoolean("darkorlight", true)) {
-      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-    } else {
-      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-    }
   }
 
   // 戻るキーを押すとドロワーが閉じる
