@@ -15,6 +15,6 @@
     android:key="about"
     android:title="About"/>
   <Preference
-    android:key="backdefault"
+    android:key="restoredefault"
     android:title="デフォルトの設定に戻す"/>
 </PreferenceScreen>
