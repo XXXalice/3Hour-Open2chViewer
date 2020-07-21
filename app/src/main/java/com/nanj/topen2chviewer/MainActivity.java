@@ -2,6 +2,7 @@ package com.nanj.topen2chviewer;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -26,6 +27,7 @@ import com.just.agentweb.WebChromeClient;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
+  String lastURL;
   AgentWeb agentWeb;
 
   @Override
@@ -56,13 +58,20 @@ public class MainActivity extends AppCompatActivity {
 
     // AgentWebを表示させる
     LinearLayout linearLayout = findViewById(R.id.agentwebcontainer);
+    String goURL;
+    if (lastURL == null) {
+      goURL = sharedPreferences.getString("homepage", "https://open2ch.net/sp/");
+    } else {
+      goURL = lastURL;
+    }
     agentWeb = AgentWeb.with(this)
         .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
         .useDefaultIndicator()
         .setWebChromeClient(webChromeClient)
+        .setWebViewClient(webViewClient)
         .createAgentWeb()
         .ready()
-        .go(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
+        .go(goURL);
 
     // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
@@ -142,6 +151,14 @@ public class MainActivity extends AppCompatActivity {
       super.onReceivedTitle(webView, title);
       TextView textView = findViewById(R.id.materialtoolbartitle);
       textView.setText(title);
+    }
+  };
+
+  // AgentWebで使うWebViewClient
+  WebViewClient webViewClient = new WebViewClient() {
+    @Override
+    public void onPageStarted(WebView webView, String url, Bitmap favicon) {
+      lastURL = url;
     }
   };
 
