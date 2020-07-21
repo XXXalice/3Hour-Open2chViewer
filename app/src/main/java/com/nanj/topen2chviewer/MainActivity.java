@@ -24,16 +24,15 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
     // テーマを変更する
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     if (sharedPreferences.getBoolean("darkorlight", true)) {
-      AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     } else {
-      AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 
+    super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
     // アップデートを確認
