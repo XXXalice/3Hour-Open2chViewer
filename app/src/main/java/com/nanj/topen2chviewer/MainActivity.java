@@ -19,6 +19,7 @@ import com.github.javiersantos.appupdater.enums.Display;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
+import com.just.agentweb.AgentWeb;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
