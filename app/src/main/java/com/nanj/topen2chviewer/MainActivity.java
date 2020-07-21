@@ -22,21 +22,19 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+  Bundle savedInstanceState;
   int lastTheme;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  protected void onCreate(savedInstanceState) {
     // テーマを変更する
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    if (savedInstanceState == null) {
-      if (sharedPreferences.getBoolean("darkorlight", true)) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-      } else {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-      }
-      lastTheme = AppCompatDelegate.getDefaultNightMode();
-      recreate();
+    if (sharedPreferences.getBoolean("darkorlight", true)) {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    } else {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
+    lastTheme = AppCompatDelegate.getDefaultNightMode();
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
@@ -95,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
       }
     });
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    if (savedInstanceState == null) {
+      recreate();
+    }
   }
 
   @Override
