@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onReceivedTitle(WebView webView, String title) {
       super.onReceivedTitle(webView, title);
+      MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
       materialToolBar.setTitle(title);
     }
   };
