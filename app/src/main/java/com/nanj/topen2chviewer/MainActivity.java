@@ -102,11 +102,7 @@ public class MainActivity extends AppCompatActivity {
           case R.id.copyurl:
             // ページのURLをコピーする
             String url = agentWeb.getWebCreator().getWebView().getUrl();
-            ClipboardManager clipboardManager = (ClipboardManager)this.getSystemService(Context.CLIPBOARD_SERVICE);
-            if (clipboardManager == null) {
-              return;
-            }
-            clipboardManager.setPrimaryClip(ClipData.newPlainText("", copyText));
+            copyToClipboard(url);
             Toast.makeText(this, "URLをコピーしました。", Toast.LENGTH_LONG).show();
             break;
         }
@@ -200,5 +196,14 @@ public class MainActivity extends AppCompatActivity {
     } else {
       drawerLayout.closeDrawer(Gravity.LEFT);
     }
+  }
+
+  // クリップボードにコピーする
+  public void copyToClipboard(String copyText) {
+    ClipboardManager clipboardManager = (ClipboardManager)this.getSystemService(Context.CLIPBOARD_SERVICE);
+    if (clipboardManager == null) {
+      return;
+    }
+    clipboardManager.setPrimaryClip(ClipData.newPlainText("", copyText));
   }
 }
