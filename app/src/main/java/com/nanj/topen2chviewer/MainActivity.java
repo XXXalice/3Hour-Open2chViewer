@@ -20,6 +20,7 @@ import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.just.agentweb.AgentWeb;
+import com.just.agentweb.DefaultWebClient;
 
 public class MainActivity extends AppCompatActivity {
   int lastTheme;
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
     AgentWeb agentWeb = AgentWeb.with(this)
         .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
         .useDefaultIndicator()
+        .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.ASK)
+        //.setMainFrameErrorView(R.layout.agentweb_error_page, "errorpage")
+        .interceptUnkownUrl()
         .createAgentWeb()
         .ready()
         .go(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
