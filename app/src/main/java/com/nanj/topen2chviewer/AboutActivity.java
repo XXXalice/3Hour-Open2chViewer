@@ -12,6 +12,7 @@ public class AboutActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     // Aboutページを作成
+    /*
     boolean darkMode;
     int darkModeFlags = getApplicationContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
     if (darkModeFlags == Configuration.UI_MODE_NIGHT_YES) {
@@ -19,6 +20,8 @@ public class AboutActivity extends AppCompatActivity {
     } else {
       darkMode = false;
     }
+    */
+    darkMode = true;
     View aboutPage = new AboutPage(this)
         .enableDarkMode(darkMode)
         .setImage(R.drawable.aa)
