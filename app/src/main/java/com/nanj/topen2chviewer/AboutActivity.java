@@ -12,8 +12,8 @@ public class AboutActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     // Aboutページを作成
-    /*
     boolean darkMode;
+    /*
     int darkModeFlags = getApplicationContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
     if (darkModeFlags == Configuration.UI_MODE_NIGHT_YES) {
       darkMode = true;
