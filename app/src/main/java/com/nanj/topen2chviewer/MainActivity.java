@@ -13,6 +13,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar.OnMenuItemClickListener;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.preference.PreferenceManager;
@@ -75,6 +76,26 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+    materialToolBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+      @Override
+      public boolean onMenuItemClick(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+          case R.id.forward:
+            // WebViewの履歴を前に進める
+            WebView webView = agentWeb.getWebCreator().getWebView();
+            if (webView.canGoForward()) {
+              webView.goForward();
+            }
+            break;
+          case R.id.copyurl:
+            // ページのURLをコピーする
+            
+            break;
+        }
+        return true;
+      }
+    });
+
     // ナビゲーションドロワーのListener
     NavigationView navigationView = findViewById(R.id.navigationview);
 
@@ -133,10 +154,10 @@ public class MainActivity extends AppCompatActivity {
       return;
     }
     WebView webView = agentWeb.getWebCreator().getWebView();
-    // if (webView.canGoBack()) {
+    if (webView.canGoBack()) {
       webView.goBack();
-      // return;
-    // }
+      return;
+    }
     super.onBackPressed();
   }
 
