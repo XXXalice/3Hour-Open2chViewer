@@ -12,15 +12,20 @@ public class AboutActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     // Aboutページを作成
-    View aboutPage = new AboutPage(this);
-    if (AppCompatDelegate.getDefaultNightMode() = AppCompatDelegate.MODE_NIGHT_YES) {
-      aboutPage.enableDarkMode(true);
+    boolean darkMode;
+    int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK
+    if (currentNightMode = Configuration.UI_MODE_NIGHT_YES) {
+      darkMode = true;
+    } else {
+      darkMode = false;
     }
-    aboutPage.setImage(R.drawable.aa);
-    aboutPage.setDescription(getString(R.string.app_name) + "\n" + getString(R.string.app_version));
-    aboutPage.addEmail("nanjdev334@gmail.com");
-    aboutPage.addGitHub("NanJ-Dev");
-    aboutPage.create();
+    View aboutPage = new AboutPage(this)
+        .enableDarkMode(darkMode)
+        .setImage(R.drawable.aa)
+        .setDescription(getString(R.string.app_name) + "\n" + getString(R.string.app_version))
+        .addEmail("nanjdev334@gmail.com")
+        .addGitHub("NanJ-Dev")
+        .create();
 
     // 作成したAboutページを表示
     setContentView(aboutPage);
