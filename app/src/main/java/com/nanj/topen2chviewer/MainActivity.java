@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 */
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     setContentView(R.layout.activity_main);
 
