@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
+/*
     // テーマを変更する
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     if (sharedPreferences.getBoolean("darkorlight", true)) {
@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     } else {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
-
+*/
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     setContentView(R.layout.activity_main);
 
     // アップデートを確認
