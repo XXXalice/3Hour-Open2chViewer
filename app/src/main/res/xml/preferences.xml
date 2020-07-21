@@ -12,9 +12,9 @@
     android:title="ダーク/ライトモードの切り替え"
     android:defaultValue="true"/>
   <Preference
-    android:key="about"
-    android:title="About"/>
-  <Preference
     android:key="restoredefault"
     android:title="デフォルトの設定に戻す"/>
+  <Preference
+    android:key="about"
+    android:title="About"/>
 </PreferenceScreen>
