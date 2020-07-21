@@ -22,11 +22,12 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-  Bundle savedInstanceState;
+  Bundle savedInstanceStateClone;
   int lastTheme;
 
   @Override
-  protected void onCreate(savedInstanceState) {
+  protected void onCreate(Bundle savedInstanceState) {
+    savedInstanceStateClone = savedInstanceState;
     // テーマを変更する
     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     if (sharedPreferences.getBoolean("darkorlight", true)) {
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onResume() {
     super.onResume();
-    if (savedInstanceState == null) {
+    if (savedInstanceStateClone == null) {
       recreate();
     }
   }
