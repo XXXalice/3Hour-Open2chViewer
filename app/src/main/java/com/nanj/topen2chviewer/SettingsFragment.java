@@ -1,5 +1,6 @@
 package com.nanj.topen2chviewer;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -54,7 +55,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 editor.putBoolean("darkorlight", true);
                 editor.apply();
                 Toast.makeText(getActivity().getApplicationContext(), "デフォルトの設定に戻されました。", Toast.LENGTH_LONG).show();
-                finish();
+                getActivity().finish();
                 startActivity(getActivity().getIntent());
               }
             })
