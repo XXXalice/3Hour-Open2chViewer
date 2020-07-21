@@ -7,9 +7,8 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
@@ -50,15 +49,14 @@ public class MainActivity extends AppCompatActivity {
         .setButtonDoNotShowAgain("二度と表示しない")
         .start();
 
-    // WebViewにページを表示させる
-    WebView webView = findViewById(R.id.webview);
-    webView.getSettings().setJavaScriptEnabled(true);
-    webView.getSettings().setDomStorageEnabled(true);
-    getWindow().setFlags(
-    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
-    webView.setWebViewClient(new WebViewClient());
-    webView.loadUrl(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
+    // AgentWebを表示させる
+    LinearLayout linearLayout = findViewById(R.id.agentwebcontainer);
+    agentWeb = AgentWeb.with(this)
+        .setAgentWebParent(linearLayout, new LinearLayout.LayoutParams(-1, -1))                
+        .useDefaultIndicator()
+        .createAgentWeb()
+        .ready()
+        .go(sharedPreferences.getString("homepage", "https://open2ch.net/sp/"));
 
     // TopAppBarのナビゲーションアイコンのListener
     MaterialToolbar materialToolBar = findViewById(R.id.materialtoolbar);
