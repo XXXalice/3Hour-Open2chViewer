@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     } else {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
-    getDelegate().applyDayNight();
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
