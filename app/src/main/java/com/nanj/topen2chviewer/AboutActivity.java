@@ -13,15 +13,18 @@ public class AboutActivity extends AppCompatActivity {
 
     // Aboutページを作成
     boolean darkMode;
+    int drawable;
     int darkModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
     if (darkModeFlags == Configuration.UI_MODE_NIGHT_YES) {
       darkMode = true;
+      drawable = R.drawable.darkaa;
     } else {
       darkMode = false;
+      drawable = R.drawable.aa;
     }
     View aboutPage = new AboutPage(this)
         .enableDarkMode(darkMode)
-        .setImage(R.drawable.aa)
+        .setImage(drawable)
         .setDescription(getString(R.string.app_name) + "\n" + getString(R.string.app_version))
         .addEmail("nanjdev334@gmail.com")
         .addGitHub("NanJ-Dev")
