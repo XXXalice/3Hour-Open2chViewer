@@ -84,24 +84,30 @@ public class MainActivity extends AppCompatActivity {
     materialToolBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
       @Override
       public boolean onMenuItemClick(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-          case R.id.forward:
-            // WebViewの履歴を前に進める
-            WebView webView = agentWeb.getWebCreator().getWebView();
-            if (webView.canGoForward()) {
-              webView.goForward();
-            }
-            break;
-          case R.id.copyurl:
-            // ページのURLをコピーする
-            String url = agentWeb.getWebCreator().getWebView().getUrl();
-            copyToClipboard(url);
-            Toast.makeText(getApplicationContext(), "URLをコピーしました。", Toast.LENGTH_LONG).show();
-            break;
+        if (menuItem.getItemId() = R.id.forward) {
+          // WebViewの履歴を前に進める
+          WebView webView = agentWeb.getWebCreator().getWebView();
+          if (webView.canGoForward()) {
+            webView.goForward();
+          }
         }
         return true;
       }
     });
+
+    // TextViewのListener
+    TextView textView = findViewById(R.id.materialtoolbartitle);
+
+    // TextViewをクリックするとURLをコピーする
+    textView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        String url = agentWeb.getWebCreator().getWebView().getUrl();
+        copyToClipboard(url);
+        Toast.makeText(getApplicationContext(), "URLをコピーしました。", Toast.LENGTH_LONG).show();
+      }
+    });
+
 
     // ナビゲーションドロワーのListener
     NavigationView navigationView = findViewById(R.id.navigationview);
