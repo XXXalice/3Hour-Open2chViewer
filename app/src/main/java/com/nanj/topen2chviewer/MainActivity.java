@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     materialToolBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
       @Override
       public boolean onMenuItemClick(MenuItem menuItem) {
-        if (menuItem.getItemId() = R.id.forward) {
+        if (menuItem.getItemId().equals(R.id.forward)) {
           // WebViewの履歴を前に進める
           WebView webView = agentWeb.getWebCreator().getWebView();
           if (webView.canGoForward()) {
