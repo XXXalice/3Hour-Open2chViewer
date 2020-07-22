@@ -6,4 +6,7 @@
     android:icon="@drawable/forward"
     android:title="進む"
     app:showAsAction="ifRoom"/>
+  <item
+    android:id="@+id/copyurl"
+    android:title="ページのURLをコピー"/>
 </menu>
